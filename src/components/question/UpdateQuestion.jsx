@@ -21,7 +21,7 @@ const UpdateQuestion = () => {
 			if (questionToUpdate) {
 				setQuestion(questionToUpdate.question)
 				setChoices(questionToUpdate.choices)
-				if (questionToUpdate.correctAnswers.length == 1) {setCorrectAnswers([questionToUpdate.correctAnswers])}
+				if (questionToUpdate.correctAnswers.length == 1) {setCorrectAnswers(questionToUpdate.correctAnswers)}
 				else {setCorrectAnswers(questionToUpdate.correctAnswers)}
 			}
 			setIsLoading(false)
