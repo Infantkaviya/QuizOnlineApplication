@@ -1,11 +1,30 @@
-import React from "react"
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-	return (
-		<main>
-			<h2 className="mt-5">Welcome to online quiz for everyone</h2>
-		</main>
-	)
-}
+  const navigate = useNavigate(); 
 
-export default Home
+  const handleLoginClick = () => {
+    navigate("/login"); 
+  };
+
+  return (
+    <main className="container mt-5">
+      <h2>Welcome to the Online Quiz App!</h2>
+
+      <p className="lead mt-5">
+        Test your knowledge with various quizzes, track your progress, 
+		<br></br>and
+        challenge yourself to improve. Get started now!
+      </p>
+
+      <div>
+        <button className="btn btn-primary mt-4" onClick={handleLoginClick}>
+          Login
+        </button>
+      </div>
+    </main>
+  );
+};
+
+export default Home;
