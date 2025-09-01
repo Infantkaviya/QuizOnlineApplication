@@ -14,7 +14,9 @@ export const getHeader = () => {
 
 export const createQuestion = async(quizQustion) =>{
   try {
-    const response = await api.post("/api/quizzes/create-new-question", quizQustion)
+    const response = await api.post("/api/quizzes/create-new-question", quizQustion, {
+      headers: getHeader(),
+    })
     return response.data
   } catch (error) {
     console.error(error)
@@ -23,7 +25,9 @@ export const createQuestion = async(quizQustion) =>{
 
 export const getAllQuestions = async() =>{
   try {
-    const response = await api.get("/api/quizzes/all-questions")
+    const response = await api.get("/api/quizzes/all-questions", {
+      headers: getHeader(),
+    })
     return response.data
   } catch (error) {
     console.error(error)
@@ -34,7 +38,9 @@ export const getAllQuestions = async() =>{
 export const fetchQuizForUser = async(number, subject) =>{
   try {
     const response = await api.get(
-			`/api/quizzes/quiz/fetch-questions-for-user?numOfQuestions=${number}&subject=${subject}`
+			`/api/quizzes/quiz/fetch-questions-for-user?numOfQuestions=${number}&subject=${subject}`, {
+      headers: getHeader(),
+    }
 		)
     return response.data
   } catch (error) {
@@ -45,7 +51,9 @@ export const fetchQuizForUser = async(number, subject) =>{
 
 export const getSubjects = async() =>{
   try {
-    const response = await api.get("/api/quizzes/subjects")
+    const response = await api.get("/api/quizzes/subjects", {
+      headers: getHeader(),
+    })
     return response.data
   } catch (error) {
     console.error(error)
@@ -55,7 +63,9 @@ export const getSubjects = async() =>{
 
 export const updateQuestion = async(id, question) =>{
   try {
-    const response = await api.put(`/api/quizzes/question/${id}/update`, question)
+    const response = await api.put(`/api/quizzes/question/${id}/update`, question, {
+      headers: getHeader(),
+    })
     return response.data
   } catch (error) {
     console.error(error)
@@ -65,7 +75,9 @@ export const updateQuestion = async(id, question) =>{
 
 export const getQuestionById = async(id) =>{
   try {
-    const response = await api.get(`/api/quizzes/question/${id}`)
+    const response = await api.get(`/api/quizzes/question/${id}`, {
+      headers: getHeader(),
+    })
 		return response.data
   } catch (error) {
     console.error(error)
@@ -74,7 +86,9 @@ export const getQuestionById = async(id) =>{
 
 export const deleteQuestion = async(id) =>{
   try {
-    const response = await api.delete(`/api/quizzes/question/${id}/delete`)
+    const response = await api.delete(`/api/quizzes/question/${id}/delete`, {
+      headers: getHeader(),
+    })
 		return response.data
   } catch (error) {
     console.error(error)
